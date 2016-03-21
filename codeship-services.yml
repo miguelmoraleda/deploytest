@@ -1,4 +1,4 @@
 app:
   build:
-    image: appp
+    image: app
     dockerfile_path: Dockerfile

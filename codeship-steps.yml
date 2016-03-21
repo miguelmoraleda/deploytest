@@ -1,2 +1,2 @@
-- service: appp
+- service: app
   command: ls
