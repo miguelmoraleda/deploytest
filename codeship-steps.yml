@@ -1,2 +1,6 @@
-- service: app
+- name: firstls
+  service: app
   command: ls
+- name: lsla
+  service: app
+  command: ls -la
