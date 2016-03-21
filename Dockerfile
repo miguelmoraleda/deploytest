@@ -1,7 +1,6 @@
 FROM ubuntu:14.04
 
 RUN apt-get update -y
-RUN apt-get install -y mercurial
 RUN apt-get install -y git
 RUN apt-get install -y python
 RUN apt-get install -y curl
@@ -17,10 +16,15 @@ RUN apt-get install -y bash-completion
 
 RUN curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
 
-RUN sudo apt-get install -y nodejs
+RUN apt-get install -y nodejs
 
 RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
 
-RUN sudo apt-get install git-lfs
+RUN apt-get install git-lfs
 
 RUN git lfs install
+
+RUN mkdir /app
+WORKDIR /app
+
+ADD . /app
