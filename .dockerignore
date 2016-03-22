@@ -1,5 +1,3 @@
-.git
 Dockerfile
-README.md
 codeship-services.yml
 codeship-steps.yml
