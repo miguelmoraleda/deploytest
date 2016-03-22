@@ -1,6 +1,9 @@
 - name: hosts perms
   service: app
   command: cat /root/.ssh/config
+- name: ls .ssh
+  service: app
+  command: ls -la /root/.ssh
 - name: clonerepo
   service: app
   command: git clone git@github.com:miguelmoraleda/deploytest.git
