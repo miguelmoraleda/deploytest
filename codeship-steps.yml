@@ -1,6 +1,6 @@
-- name: add key
+- name: hosts perms
   service: app
-  command: ssh-keyscan github.com >> ~/.ssh/known_hosts
+  command: cat /root/.ssh/config
 - name: clonerepo
   service: app
   command: git clone git@github.com:miguelmoraleda/deploytest.git

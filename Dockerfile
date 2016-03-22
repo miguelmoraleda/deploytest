@@ -1,6 +1,5 @@
 FROM ubuntu:14.04
 
-RUN apt-get update -y
 RUN apt-get install -y git
 RUN apt-get install -y python
 RUN apt-get install -y curl
@@ -16,6 +15,12 @@ RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.d
 RUN apt-get install git-lfs
 
 RUN git lfs install
+
+RUN mkdir ~/.ssh
+
+RUN echo "Host github.com\n\tStrictHostKeyChecking no\n\tPermitLocalCommand yes\n\tUserKnownHostsFile=/dev/null" >> ~/.ssh/config
+
+RUN cat ~/.ssh/config
 
 RUN mkdir /app
 WORKDIR /app
