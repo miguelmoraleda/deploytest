@@ -1,3 +1,6 @@
+- name: add key
+  service: app
+  command: ssh-keyscan github.com >> ~/.ssh/known_hosts
 - name: clonerepo
   service: app
   command: git clone git@github.com:miguelmoraleda/deploytest.git
