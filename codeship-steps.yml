@@ -1,6 +1,12 @@
-- name: firstls
+- name: ls
   service: app
   command: ls
 - name: lsla
   service: app
   command: ls -la
+- name: nodeversion
+  service: app
+  command: node --version
+- name: gitlfsversion
+  service: app
+  command: git lfs
