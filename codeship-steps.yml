@@ -7,6 +7,9 @@
 - name: git lfs fetch
   service: app
   command: git lfs fetch
+- name: ll dos
+  service: app
+  command: ls -la
 - name: nodeversion
   service: app
   command: node --version
