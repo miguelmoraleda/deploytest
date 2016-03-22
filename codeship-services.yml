@@ -2,5 +2,5 @@ app:
   build:
     image: app
     dockerfile_path: Dockerfile
+    encrypted_env_file: sshkey.env.encrypted
   cached: false
-  encrypted_env_file: sshkey.env.encrypted

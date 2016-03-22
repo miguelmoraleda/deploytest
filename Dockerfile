@@ -23,8 +23,9 @@ WORKDIR /app
 
 ADD . /app
 
+RUN ls -la /app
 
-RUN cp sshkey.env $HOME/.ssh/id_rsa
+RUN echo $PRIVATE_SSH_KEY >> $HOME/.ssh/id_rsa
 
 RUN chmod 600 $HOME/.ssh/id_rsa
 
@@ -32,7 +33,9 @@ RUN chmod -R 700 $HOME/.ssh
 
 RUN eval "$(ssh-agent -s)"
 
+RUN ssh-agent bash
 
+RUN ssh-add $HOME/.ssh/id_rsa
 
 RUN echo "Host github.com\n\tStrictHostKeyChecking no\n\tPermitLocalCommand yes\n\tUserKnownHostsFile=/dev/null" >> ~/.ssh/config
 
