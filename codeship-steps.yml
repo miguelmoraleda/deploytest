@@ -1,6 +1,6 @@
-- name: ls
+- name: clonerepo
   service: app
-  command: ls
+  command: git clone git@github.com:miguelmoraleda/deploytest.git
 - name: lsla
   service: app
   command: ls -la
