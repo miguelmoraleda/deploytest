@@ -16,15 +16,26 @@ RUN apt-get install git-lfs
 
 RUN git lfs install
 
-RUN mkdir ~/.ssh
-
-RUN echo "Host github.com\n\tStrictHostKeyChecking no\n\tPermitLocalCommand yes\n\tUserKnownHostsFile=/dev/null" >> ~/.ssh/config
-
-RUN cat ~/.ssh/config
+RUN mkdir -p "$HOME/.ssh"
 
 RUN mkdir /app
 WORKDIR /app
 
 ADD . /app
+
+
+RUN cp sshkey.env $HOME/.ssh/id_rsa
+
+RUN chmod 600 $HOME/.ssh/id_rsa
+
+RUN chmod -R 700 $HOME/.ssh
+
+RUN eval "$(ssh-agent -s)"
+
+
+
+RUN echo "Host github.com\n\tStrictHostKeyChecking no\n\tPermitLocalCommand yes\n\tUserKnownHostsFile=/dev/null" >> ~/.ssh/config
+
+RUN cat $HOME/.ssh/config
 
 RUN ls -la /app

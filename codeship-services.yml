@@ -3,3 +3,4 @@ app:
     image: app
     dockerfile_path: Dockerfile
   cached: false
+  encrypted_env_file: sshkey.env.encrypted
