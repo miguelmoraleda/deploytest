@@ -1,6 +1,12 @@
-- name: lsla
+- name: ll
   service: app
   command: ls -la
+- name: git pull
+  service: app
+  command: git pull
+- name: git lfs fetch
+  service: app
+  command: git lfs fetch
 - name: nodeversion
   service: app
   command: node --version
